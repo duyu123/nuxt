@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators":true,
+    // "jsx": "react",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "@types/node",
+      "@nuxt/types" // 新增
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "plugins/ga.js",
+    "static/iconfont.js",
+  ]
+}
