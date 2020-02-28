@@ -59,6 +59,7 @@ export default {
       },
       '@nuxtjs/axios',
       '@nuxtjs/proxy',
+      'nuxt-svg-loader',
       '@nuxtjs/style-resources'
     ]
   ],
@@ -99,7 +100,13 @@ export default {
               appendTsSuffixTo: [/\.vue$/],
               transpileOnly: true
             }
-          }   
+          },
+          {
+            enforce: 'pre',
+            test: /\.(js|vue)$/,
+            loader: 'eslint-loader',
+            exclude: /(node_modules)|(\.svg$)/
+          }  
         )
       }
     }

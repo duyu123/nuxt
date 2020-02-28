@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
+    "jsx": "preserve",
     "experimentalDecorators":true,
     // "jsx": "react",
     "target": "esnext",
     "module": "esnext",
+    "importHelpers": true,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "esnext",
       "esnext.asynciterable",
-      "dom"
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ],
     "esModuleInterop": true,
     "allowJs": true,
@@ -31,6 +36,13 @@
       "@nuxt/types" // 新增
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
   "exclude": [
     "node_modules",
     "plugins/ga.js",
