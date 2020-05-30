@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/nuxt/'
