@@ -1,32 +1,11 @@
-
-// import { Vue, Component, Prop } from 'vue-property-decorator'
-// import './index.scss'
-
-// interface Svg {
-//   icon: string
-// }
-
-// @Component
-// export default class IconComponent extends Vue {
-//   @Prop({ type: Object, required: true }) readonly svg!: Svg
-
-//   public render() {
-//     return (
-//       <div></div>
-//         // <svg className="icon" aria-hidden="true">
-//         //   <use xlink:href="{`#icon-${this.svg.icon}`}"></use>
-//         // </svg>
-//     )
-//   }
-// }
-
 import Vue, { CreateElement, RenderContext, ComponentOptions } from 'vue'
 import { DefaultSlots } from '../../utils/type'
 import { emit } from '../../utils/functional'
 import { CreateComponent } from '../../utils'
-require('../../assets/font/iconfont.js')
 
-type IconProps = {
+import './index.scss'
+
+export type IconProps = {
   text: String
 }
 
@@ -41,13 +20,16 @@ type IconProps = {
 function Icon (
   h: CreateElement,
   props: IconProps,
+  slots: DefaultSlots,
   ctx: RenderContext<IconProps>
 ) {
   const { text } = props
-
+console.log(text)
   return (
-    <svg className="icon" aria-hidden="true">
-      <use v-bind={{'xlink:href': `#icon-${text}`}}></use>
+   
+    <svg class="icon" aria-hidden="true" style={{ fontSize: '16px', color: 'lightblue' }}>
+      <use xlinkHref={`#icon${text}`}></use>
+      { slots.default?.() }
     </svg>
   )
 }

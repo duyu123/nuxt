@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default">
     <nuxt />
   </div>
 </template>
@@ -22,6 +22,11 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.default {
+  height: 100%;
+  width: 100%;
 }
 
 .button--green {

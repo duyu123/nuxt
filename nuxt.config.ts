@@ -33,8 +33,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~plugins/ga.js', mode: 'client' },
-    { src: '~static/iconfont.js', ssr:false},
+    { src: '~plugins/iconfont.js', ssr:false},
   ],
   /*
    ** Nuxt.js dev-modules
@@ -89,8 +88,8 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
+    extend(config, {isDev, isClient}) {
+      if (isDev && isClient) {
         config.module.rules.push( 
           {
             test: /\.ts$/,
@@ -107,8 +106,20 @@ export default {
             loader: 'eslint-loader',
             exclude: /(node_modules)|(\.svg$)/
           }  
-        )
+        );
       }
+
+      if(isClient) { // web workers are only availabel client-side
+        config.module.rules.push({
+          test: /\.worker\.js&/,
+          loader: 'worker-loader',
+          exclude: /(node_modules)/
+        });
+      }
+
+    },
+    node: {
+      fs: 'empty'
     }
   }
 }

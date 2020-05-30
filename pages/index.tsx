@@ -1,31 +1,25 @@
 
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import IconComponent from '@/components/icon/index.tsx'
-import '@/style/modules/index/index.scss'
+import { Vue, Component } from 'vue-property-decorator'
+import drmsIcon from '@/components/icon/index.tsx'
+import '~/assets/style/modules/index/index.scss'
 
-interface User {
-  firstName: string
-  lastName: number
-}
 
-@Component
-export default class YourComponent extends Vue {
-@Prop({ type: Object, required: true }) readonly user!: User
+@Component({
+  components: {
+    "drms-icon": drmsIcon
+  }
+})
 
-message: string = 'This is a message'
 
-get fullName (): string {
-  return `${this.user.firstName} ${this.user.lastName}`
-}
 
-public render() {
-  return (
-    <div>
-      222
-      <IconComponent svg="{icon: 'a'}" />
-    </div>
-  );
+export default class IndexComponent extends Vue {
 
-}
+  public render() {
+    return (
+      <div class='container'>
+        <drms-icon text="a" />
+      </div>
+    );
+  }
 }
 

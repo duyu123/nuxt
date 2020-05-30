@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
-    "experimentalDecorators":true,
+    "experimentalDecorators": true,
     // "jsx": "react",
     "target": "esnext",
     "module": "esnext",
@@ -37,15 +37,16 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "./*.ts",
+    "./*.tsx",
+    "**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
-    "plugins/ga.js",
-    "static/iconfont.js",
+    "plugins/*",
+    "assets/*",
+    "static/font/*",
   ]
 }

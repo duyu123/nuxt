@@ -9,14 +9,15 @@
 
 import Vue, { VNode, CreateElement, VueConstructor } from 'vue'
 import { DefaultProps, PropsDefinition, InjectOptions, RenderContext, ComponentOptions } from 'vue/types/options'
-import { ScopedSlots, DrmsComponentOptions, ScopedSlot } from './type'
+import { ScopedSlots, DrmsComponentOptions } from './type'
 
 export function transformFunctionComponent(fn:FunctionComponent): DrmsComponentOptions {
   return {
     functional: true,
     props: fn.props,
     model: fn.model,
-    render: (h, context):any => fn(h, context.props, unifySlots(context), context)
+    render: (h, context):any => 
+      fn(h, context.props, unifySlots(context), context)
   }
 }
 
@@ -47,7 +48,7 @@ function install (this:ComponentOptions<Vue>, Vue:VueConstructor) {
 
 //  function组件的类型定义
 export type FunctionComponent<Props=DefaultProps, PropsDefs = PropsDefinition<Props>> = {
-  (h: CreateElement, Props:Props, slots: ScopedSlot, context:RenderContext<Props>): VNode|undefined,
+  (h: CreateElement, Props:Props, slots: ScopedSlots, context:RenderContext<Props>): VNode|undefined,
   props?: PropsDefs,
   model?: ModelOptions,
   inject?: InjectOptions
