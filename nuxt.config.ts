@@ -1,5 +1,9 @@
 const path = require('path')
-
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/nuxt/'
+  }
+} : {}
 export default {
   mode: 'universal',
   /*
@@ -120,15 +124,15 @@ export default {
       }
 
     },
+    ...routerBase,
     node: {
       fs: 'empty'
     },
-  },
-  router: {
-    base: '/nuxt-ts'
-  },
+  }
   // generate: {
   //   dir: 'docs',
   //   subFolders: false
   // }
 }
+
+
