@@ -1,7 +1,7 @@
 // const path = require('path')
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/nuxt/'
+    base: '/nuxt-ts/'
   }
 } : {}
 export default {
