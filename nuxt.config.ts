@@ -121,5 +121,12 @@ export default {
     node: {
       fs: 'empty'
     }
+  },
+  router: {
+    base: '/nuxt-ts'
+  },
+  generate: {
+    dir: 'docs',
+    subFolders: false
   }
 }
