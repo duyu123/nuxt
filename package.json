@@ -25,7 +25,7 @@
     "exif-js": "^2.3.0",
     "face-api.js": "^0.22.2",
     "koa": "^2.6.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.0.0",
     "nuxt-svg-loader": "^1.2.0",
     "postcss-loader": "^3.0.0",
